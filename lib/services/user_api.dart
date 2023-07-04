@@ -1,6 +1,7 @@
 import 'package:http/http.dart' as http;
 import 'package:randomuser/models/user.dart';
 import 'package:randomuser/models/user_dob.dart';
+import 'package:randomuser/models/user_location.dart';
 import 'dart:convert';
 
 import 'package:randomuser/models/user_name.dart';
@@ -14,20 +15,7 @@ class UserApi {
     final json = jsonDecode(body);
     final results = json['results'] as List<dynamic>;
     final users = results.map((e) {
-      final date = e['dob']['date'];
-      final name = UserName(
-          title: e['name']['title'],
-          first: e['name']['first'],
-          last: e['name']['last']);
-      final dob = UserDob(date: DateTime.parse(date), age: e['dob']['age']);
-      return User(
-          gender: e['gender'],
-          email: e['email'],
-          phone: e['phone'],
-          cell: e['cell'],
-          nat: e['nat'],
-          name: name,
-          dob: dob);
+      return User.fromMap(e);
     }).toList();
     return users;
   }

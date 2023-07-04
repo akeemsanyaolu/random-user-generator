@@ -1,4 +1,5 @@
 import 'package:randomuser/models/user_dob.dart';
+import 'package:randomuser/models/user_location.dart';
 import 'package:randomuser/models/user_name.dart';
 
 class User {
@@ -9,6 +10,7 @@ class User {
   final String nat;
   final UserName name;
   final UserDob dob;
+  final UserLocation location;
 
   User({
     required this.gender,
@@ -18,7 +20,23 @@ class User {
     required this.nat,
     required this.name,
     required this.dob,
+    required this.location,
   });
+
+  factory User.fromMap(Map<String, dynamic> e) {
+    final name = UserName.fromMap(e['name']);
+    final dob = UserDob.fromMap(e['dob']);
+    final location = UserLocation.fromMap(e['location']);
+    return User(
+        gender: e['gender'],
+        email: e['email'],
+        phone: e['phone'],
+        cell: e['cell'],
+        nat: e['nat'],
+        name: name,
+        dob: dob,
+        location: location);
+  }
 
   String get fullName {
     return '${name.title} ${name.first} ${name.last}';

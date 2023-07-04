@@ -33,10 +33,11 @@ class _HomeScreenState extends State<HomeScreen> {
             final email = user.email;
             final phone = user.phone;
             final dob = user.dob;
+            // final location = user.location;
             final color = user.gender == 'male' ? Colors.blue : Colors.green;
             return ListTile(
               title: Text(name),
-              subtitle: Text(dob.date.toString()),
+              subtitle: Text(user.location.state),
               //tileColor: color,
             );
           }),
