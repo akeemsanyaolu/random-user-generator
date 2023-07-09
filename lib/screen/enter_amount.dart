@@ -7,6 +7,21 @@ class EnterAmount extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    final _textEditingController = TextEditingController();
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Random User'),
+      ),
+      body: Column(
+        children: [
+          TextField(
+            controller: _textEditingController,
+            decoration:
+                InputDecoration(labelText: 'Enter amount of users to generate'),
+          ),
+          ElevatedButton(onPressed: () {}, child: Text('Submit'))
+        ],
+      ),
+    );
   }
 }
