@@ -1,22 +1,42 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 
 import 'package:randomuser/models/user.dart';
 import 'package:randomuser/services/user_api.dart';
+import 'package:http/http.dart' as http;
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+  const HomeScreen({super.key, required this.amount});
+  final int amount;
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<HomeScreen> createState() => _HomeScreenState(amount: amount);
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  final int amount;
   List<User> users = [];
+
+  _HomeScreenState({required this.amount});
 
   @override
   void initState() {
     super.initState();
     fetchUser();
+  }
+
+  Future<List<User>> fetchUsers() async {
+    final url = 'https://randomuser.me/api/?results=$amount';
+    final uri = Uri.parse(url);
+    final response = await http.get(uri);
+    final body = response.body;
+    final json = jsonDecode(body);
+    final results = json['results'] as List<dynamic>;
+    final users = results.map((e) {
+      return User.fromMap(e);
+    }).toList();
+    return users;
   }
 
   @override
@@ -45,7 +65,7 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Future<void> fetchUser() async {
-    final response = await UserApi.fetchUsers();
+    final response = await fetchUsers();
     setState(() {
       users = response;
     });

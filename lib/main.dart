@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:randomuser/screen/enter_amount.dart';
 import 'package:randomuser/screen/home.dart';
 
 void main() {
@@ -11,7 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: HomeScreen(),
+      home: EnterAmount(),
     );
   }
 }
