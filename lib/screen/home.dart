@@ -3,7 +3,6 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 
 import 'package:randomuser/models/user.dart';
-import 'package:randomuser/services/user_api.dart';
 import 'package:http/http.dart' as http;
 
 class HomeScreen extends StatefulWidget {
