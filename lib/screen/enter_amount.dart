@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
+//import 'package:flutter/src/widgets/framework.dart';
+//import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:randomuser/screen/home.dart';
 
 class EnterAmount extends StatelessWidget {
@@ -44,7 +44,7 @@ class EnterAmount extends StatelessWidget {
                                 amount: int.parse(_textEditingController.text),
                               )));
                 },
-                child: Text('Submit')),
+                child: const Text('Submit')),
             const Spacer(
               flex: 5,
             )

@@ -1,10 +1,10 @@
 import 'package:http/http.dart' as http;
 import 'package:randomuser/models/user.dart';
-import 'package:randomuser/models/user_dob.dart';
-import 'package:randomuser/models/user_location.dart';
+//import 'package:randomuser/models/user_dob.dart';
+//import 'package:randomuser/models/user_location.dart';
 import 'dart:convert';
 
-import 'package:randomuser/models/user_name.dart';
+//import 'package:randomuser/models/user_name.dart';
 
 class UserApi {
   static Future<List<User>> fetchUsers() async {

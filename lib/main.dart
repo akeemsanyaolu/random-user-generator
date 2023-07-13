@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:randomuser/screen/enter_amount.dart';
-import 'package:randomuser/screen/home.dart';
+//import 'package:randomuser/screen/home.dart';
 
 void main() {
   runApp(const MyApp());
